@@ -105,7 +105,7 @@ harmonic = (L/2)*(1 - cos(pi*theta/beta));
 
 % Generate cam surface for each section
 % 3-4-5 polynomial rise (0 < theta < 110) 0mm to 10mm
-L1 = 0.01;
+L1 = 0.01; 
 beta1 = deg2rad(110);
 t1 = 0:dt:beta1-dt;
 y1 = subs(polynomial,{theta,beta,L},{t1,beta1,L1});
@@ -114,7 +114,7 @@ a1 = subs(diff(polynomial,theta,2)*omega^2,{theta,beta,L},{t1,beta1,L1});
 j1 = subs(diff(polynomial,theta,3)*omega^3,{theta,beta,L},{t1,beta1,L1});
 
 % Dwell (110 < theta < 120)
-L2 = 0.01; % constant displacement
+L2 = L1; % constant displacement
 beta2 = deg2rad(120);
 t2 = beta1:dt:beta2-dt;
 y2 = y1(end) + subs(dwell,{theta,beta,L},{t2-t2(1),beta2-beta1,L2-L1});
@@ -132,7 +132,7 @@ a3 = subs(diff(cycloidal,theta,2)*omega^2,{theta,beta,L},{t3-t3(1),beta3-beta2,L
 j3 = subs(diff(cycloidal,theta,3)*omega^3,{theta,beta,L},{t3-t3(1),beta3-beta2,L3-L2});
 
 % Dwell (200 < theta < 220)
-L4 = 0.01; % constant displacement
+L4 = L3; % constant displacement
 beta4 = deg2rad(220);
 t4 = beta3:dt:beta4-dt;
 y4 = y3(end) + subs(dwell,{theta,beta,L},{t4-t4(1),beta4-beta3,L4-L3});
@@ -150,7 +150,7 @@ a5 = subs(diff(harmonic,theta,2)*omega^2,{theta,beta,L},{t5-t5(1),beta5-beta4,L5
 j5 = subs(diff(harmonic,theta,3)*omega^3,{theta,beta,L},{t5-t5(1),beta5-beta4,L5-L4});
 
 % Dwell (340 < theta < 360)
-L6 = 0; % constant displacement
+L6 = L5; % constant displacement
 beta6 = deg2rad(360);
 t6 = beta5:dt:beta6-dt;
 y6 = y5(end) + subs(dwell,{theta,beta,L},{t6-t6(1),beta6-beta5,L6-L5});
