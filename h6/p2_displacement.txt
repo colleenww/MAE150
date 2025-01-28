@@ -1,0 +1,5 @@
+Node Number	Total Deformation (m)
+1	4.6018e-003
+2	8.7592e-003
+3	0.
+4	1.369e-003

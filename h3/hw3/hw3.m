@@ -204,7 +204,7 @@ p3a = 'See figure 4';
 
 
 % Define parameters
-r_follower = 5e-3;        % [m] Follower radius
+r_follower = 6e-3;        % [m] Follower radius
 r_prime = 0.02;           % [m] Radius of prime circle
 omega = 1000*2*pi/60;     % [rad/sec] Convert CAM rotational speed from RPM to rad/sec
 r_base = r_prime - r_follower;  % [m] Base circle radius
@@ -325,4 +325,4 @@ set(gca, 'XTick', 0:30:360, 'XTickLabel', 0:30:360);
 hold off;
 
 p3c = 'See figure 6';
-p3d = 'This is not a good CAM design because of the acceleration and jerk discontinuities. It can be amended by modifying the cam profile to smooth transitions between phases.'
+p3d = 'This is not a good CAM design because of the acceleration and jerk discontinuities. It can be amended by modifying the cam profile to smooth transitions between phases.';

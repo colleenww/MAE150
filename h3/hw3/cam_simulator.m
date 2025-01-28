@@ -7,7 +7,7 @@ export_animation = false;
 animation_filename = 'cam1_animation.gif';
 
 %% Cam parameters
-r_follower = 5e-3;      % [m] follower radius
+r_follower = 6e-3;      % [m] follower radius
 r_prime = 0.02;         % [m] radius of prime circle
 omega = 1000*2*pi/60;   % [rad/sec] convert CAM rotational speed from RPM to rad/sec
 r_base = r_prime - r_follower;

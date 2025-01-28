@@ -1,0 +1,61 @@
+# encoding: utf-8
+# 2024 R1
+SetScriptVersion(Version="24.1.144")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+system1.DisplayText = "HW 6"
+system1.DisplayText = "hw 6"
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="new steel")
+matl2 = engineeringData1.CreateMaterial(Name="\\")
+matl2.Delete()
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["900 [Pa]"]])
+matlProp1.SetVariableProperty(
+    VariableName="Young's Modulus",
+    Property="Unit",
+    Value="GPa")
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["9.0000000000000007E-07 [GPa]"]])
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["200 [GPa]"]])
+matlProp1.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.3"]])
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+Save(Overwrite=True)
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+model1.Exit()
+geometry1.Edit()
+geometry1.Exit()
+modelComponent1.Refresh()
+model1.Edit()
+model1.Exit()
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+geometryComponent1.Update(AllDependencies=True)
+modelComponent1.Update(AllDependencies=True)
+model1.Edit()
+model1.Exit()
+geometry1.Edit()
+geometry1.Exit()
+modelComponent1.Update(AllDependencies=True)
+model1.Edit()
+model1.Exit()
+model1.Edit()
+model1.Exit()
+Save(Overwrite=True)
